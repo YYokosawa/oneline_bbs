@@ -40,7 +40,7 @@
 
           echo $nickname;
           echo '様<br />';
-          echo 'ご意見ありがとうございました！<br />';
+          echo '意見ありがとne！<br />';
           echo '頂いたご意見『';
           echo $comment;
           echo '』<br />';
@@ -53,9 +53,8 @@
 
         $sql ='SELECT * FROM `posts` WHERE 1';
 
-        var_dump($sql);
-
         $stmt =$dbh->prepare($sql);
+        var_dump($sql);
 
         $stmt->execute();
 
