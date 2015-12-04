@@ -5,12 +5,12 @@
   <title>セブ掲示版</title>
 
   <!-- CSS 一戸参照-->
-<!--   <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
   <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" href="assets/css/form.css">
   <link rel="stylesheet" href="assets/css/timeline.css">
   <link rel="stylesheet" href="assets/css/main.css">
- -->
+
   <link rel="stylesheet" href="assets/css/CommentBox_by_mohsinirshad.css">
 
 
@@ -29,7 +29,7 @@
   </div>
     
     <form action="" method="post">
-      <input type="text" name="nickname" placeholder="nickname" required>
+      <input type="text" name="nickname" placeholder="名前はなんていうの？" required>
     </form>
 
 
