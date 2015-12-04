@@ -16,25 +16,30 @@
 
 </head>
 <body>
-    <form action="" method="post">
+    <!-- <form action="" method="post">
       <input type="text" name="nickname" placeholder="nickname" required>
       <textarea type="text" name="comment" placeholder="comment" required></textarea>
       <button type="submit" >つぶやく</button>
-    </form>
+    </form> -->
 
 <!-- http://bootsnipp.com/snippets/featured/comment-box　参照 -->
 <div class="container">
   <div class="row">
-    <h3>Status Upload Snipp</h3>
+    <h3>思い立ったらつぶやき</h3>
   </div>
     
+    <form action="" method="post">
+      <input type="text" name="nickname" placeholder="nickname" required>
+    </form>
+
+
     <div class="row">
     
     <div class="col-md-6">
                 <div class="widget-area no-padding blank">
                 <div class="status-upload">
                   <form>
-                    <textarea placeholder="What are you doing right now?" ></textarea>
+                    <textarea placeholder="最近どう?" ></textarea>
                     <ul>
                       <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Audio"><i class="fa fa-music"></i></a></li>
                       <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Video"><i class="fa fa-video-camera"></i></a></li>
