@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="assets/css/timeline.css">
   <link rel="stylesheet" href="assets/css/main.css">
 
-  <link rel="stylesheet" href="assets/css/CommentBox_by_mohsinirshad.css">
+  <link rel="stylesheet" href="assets/css/boot_snipp_css/CommentBox_by_mohsinirshad.css">
 
 
 </head>
@@ -31,10 +31,7 @@
     <form action="" method="post">
       <input type="text" name="nickname" placeholder="名前はなんていうの？" required>
     </form>
-
-
     <div class="row">
-    
     <div class="col-md-6">
                 <div class="widget-area no-padding blank">
                 <div class="status-upload">
