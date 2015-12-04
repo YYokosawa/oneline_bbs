@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <title>セブ掲示版</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <!-- CSS 一戸参照-->
+<!--   <link rel="stylesheet" href="assets/css/bootstrap.css">
   <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" href="assets/css/form.css">
   <link rel="stylesheet" href="assets/css/timeline.css">
   <link rel="stylesheet" href="assets/css/main.css">
+ -->
+  <link rel="stylesheet" href="online_bbsassets/css/CommentBox_by_mohsinirshad.css">
+
 
 </head>
 <body>
@@ -19,125 +22,34 @@
       <button type="submit" >つぶやく</button>
     </form>
 
-<!-- 一戸コピー参考用 　始まり-->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header page-scroll">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#page-top"><span class="strong-title"><i class="fa fa-linux"></i> Oneline bbs</span></a>
-          </div>
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right">
-<!--                   <li class="hidden">
-                      <a href="#page-top"></a>
-                  </li>
-                  <li class="page-scroll">
-                      <a href="#portfolio">Portfolio</a>
-                  </li>
-                  <li class="page-scroll">
-                      <a href="#about">About</a>
-                  </li>
-                  <li class="page-scroll">
-                      <a href="#contact">Contact</a>
-                  </li> -->
-              </ul>
-          </div>
-          <!-- /.navbar-collapse -->
-      </div>
-      <!-- /.container-fluid -->
-  </nav>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 content-margin-top">
-        <form action="bbs.php" method="post">
-          <div class="form-group">
-            <div class="input-group">
-              <?php // echo '<input type="text" name="nickname" class="form-control" id="validate-text" placeholder="nickname" value="' . $_SESSION["nickname"] . '" required>'  ?>
-              
-              <?php 
-                  if (isset($_SESSION["nickname"])) {
-                      echo sprintf('<input type="text" name="nickname" class="form-control"
-                       id="validate-text" placeholder="nickname" value="%s" required>',
-                          $_SESSION["nickname"]
-                      );
-                  } else {
-                      echo '<input type="text" name="nickname" class="form-control"
-                       id="validate-text" placeholder="nickname" required>';
-                  }
-              ?>
-
-              <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
-            </div>
-            
-          </div>
-
-          <div class="form-group">
-            <div class="input-group" data-validate="length" data-length="4">
-              <textarea type="text" class="form-control" name="comment" id="validate-length" placeholder="comment" required></textarea>
-              <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-primary col-xs-12" disabled>つぶやく</button>
-        </form>
-      </div>
-
-      <div class="col-md-8 content-margin-top">
-        <?php
-            // データの取得と表示
-            $sql = 'SELECT * FROM posts ORDER BY `created` DESC';
-            $posts = mysqli_query($db,$sql) or die(mysqli_error($db));
-        ?>
-
-        <div class="timeline-centered">
-
-        <?php while ($post = mysqli_fetch_assoc($posts)): ?>
-
-        <article class="timeline-entry">
-
-            <div class="timeline-entry-inner">
-
-                <div class="timeline-icon bg-success">
-                    <i class="entypo-feather"></i>
-                    <i class="fa fa-cogs"></i>
-                </div>
-
-                <div class="timeline-label">
-                    <h2><a href="#"><?php echo $post['nickname'] ?></a> <span><?php echo $post['created'] ?></span></h2>
-                    <p><?php echo $post['comment'] ?></p>
-                </div>
-            </div>
-
-        </article>
-        <?php endwhile; ?>
-
-        <article class="timeline-entry begin">
-
-            <div class="timeline-entry-inner">
-
-                <div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
-                    <i class="entypo-flight"></i> +
-                </div>
-
-            </div>
-
-        </article>
-
-      </div>
-
-    </div>
+<!-- http://bootsnipp.com/snippets/featured/comment-box　参照 -->
+<div class="container">
+  <div class="row">
+    <h3>Status Upload Snipp</h3>
   </div>
-
-  <!-- 一戸コピー参考用 　終わり-->
-
+    
+    <div class="row">
+    
+    <div class="col-md-6">
+                <div class="widget-area no-padding blank">
+                <div class="status-upload">
+                  <form>
+                    <textarea placeholder="What are you doing right now?" ></textarea>
+                    <ul>
+                      <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Audio"><i class="fa fa-music"></i></a></li>
+                      <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Video"><i class="fa fa-video-camera"></i></a></li>
+                      <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Sound Record"><i class="fa fa-microphone"></i></a></li>
+                      <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
+                    </ul>
+                    <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> つぶやく</button>
+                  </form>
+                </div><!-- Status Upload  -->
+              </div><!-- Widget Area -->
+            </div>
+        
+    </div>
+</div>
+<!-- http://bootsnipp.com/snippets/featured/comment-box　参照終わり -->
 
 
 <?php
