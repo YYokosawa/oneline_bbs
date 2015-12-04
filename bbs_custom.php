@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="assets/css/timeline.css">
   <link rel="stylesheet" href="assets/css/main.css">
  -->
-  <link rel="stylesheet" href="online_bbsassets/css/CommentBox_by_mohsinirshad.css">
+  <link rel="stylesheet" href="assets/css/CommentBox_by_mohsinirshad.css">
 
 
 </head>
@@ -41,7 +41,7 @@
                       <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Sound Record"><i class="fa fa-microphone"></i></a></li>
                       <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
                     </ul>
-                    <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> つぶやく</button>
+                    <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
                   </form>
                 </div><!-- Status Upload  -->
               </div><!-- Widget Area -->
