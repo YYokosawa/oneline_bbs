@@ -36,7 +36,7 @@
                 <div class="widget-area no-padding blank">
                 <div class="status-upload">
                   <form>
-                    <textarea placeholder="最近どう?" ></textarea>
+                    <textarea type="text" name="comment" placeholder="最近どう?" required></textarea>
                     <ul>
                       <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Audio"><i class="fa fa-music"></i></a></li>
                       <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Video"><i class="fa fa-video-camera"></i></a></li>
@@ -53,27 +53,6 @@
 </div>
 <!-- http://bootsnipp.com/snippets/featured/comment-box　参照終わり -->
 
-
-<?php
-    // セッションを使うことを定義
-    session_start();
-
-    // セッションへデータの保存
-    // $_SESSION["site_title"] = "Online_bbs";
-
-
-    // if (isset($_SESSION["nickname"])) {
-    //     // セッションからデータの取得
-    //     echo $_SESSION["nickname"];
-    // }
-
-    $db = mysqli_connect('localhost','root','');
-    mysqli_select_db($db,'oneline_bbs');
-    mysqli_set_charset($db,'utf8');
-
-?>
-<!-- ichinohe 1~18 copy -->
-
 <?php
 
   //POST送信が行われたら、下記の処理を実行
@@ -84,9 +63,16 @@
   //SQL文作成（INSERT文）
 
   //INSERT文実行
-        $dsn='mysql:dbname=online_bbs;host=localhost';
-        $user='root';
-        $password='';
+        // $dsn='mysql:dbname=online_bbs;host=localhost';
+        // $user='root';
+        // $password='';
+        //XAMPPデータベースに接続する際の入力
+
+        $dsn='mysql:dbname=LAA0685924-onelinebbs;host=mysql105.phy.lolipop.lan';
+        $user='LAA0685924';
+        $password='nexseed1204';
+        //ロリポップサーバーに接続する際はこのように変更
+        //https://mysqladmin.lolipop.jp/pma/index.php?db=LAA0685924-onelinebbs&server=129&token=4e9c1730b46dd28f1f33551cec8990c9#PMAURL:db=LAA0685924-onelinebbs&table=posts&target=sql.php&server=129&token=4e9c1730b46dd28f1f33551cec8990c9
 
         $dbh =new PDO($dsn,$user,$password);
         $dbh->query('SET NAMES utf8');
