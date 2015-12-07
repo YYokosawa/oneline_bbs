@@ -24,16 +24,67 @@
 
 <!-- http://bootsnipp.com/snippets/featured/comment-box　参照 -->
 <div class="container">
-  <div class="row">
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header page-scroll">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#page-top"><span class="strong-title"><i class="fa fa-bullhorn"></i> 思い立ったらつぶやき</span></a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+<!--                   <li class="hidden">
+                      <a href="#page-top"></a>
+                  </li>
+                  <li class="page-scroll">
+                      <a href="#portfolio">Portfolio</a>
+                  </li>
+                  <li class="page-scroll">
+                      <a href="#about">About</a>
+                  </li>
+                  <li class="page-scroll">
+                      <a href="#contact">Contact</a>
+                  </li> -->
+              </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+  </nav>
+  <br /><br /><br />
+<!--   <div class="row">
     <h3>思い立ったらつぶやき</h3>
   </div>
-    
-    <form action="" method="post">
-      <input type="text" name="nickname" placeholder="名前はなんていうの？" required>
-    </form>
+  タイトルのみの表示の時使用
+     -->
+          <div class="form-group">
+            <div class="input-group">
+              <?php // echo '<input type="text" name="nickname" class="form-control" id="validate-text" placeholder="nickname" value="' . $_SESSION["nickname"] . '" required>'  ?>
+              
+              <?php 
+                  if (isset($_SESSION["nickname"])) {
+                      echo sprintf('<input type="text" name="nickname" class="form-control"
+                       id="validate-text" placeholder="名前はなんてゆ〜の？" value="%s" required>',
+                          $_SESSION["nickname"]
+                      );
+                  } else {
+                      echo '<input type="text" name="nickname" class="form-control"
+                       id="validate-text" placeholder="名前はなんてゆ〜の？" required>';
+                  }
+              ?>
+            </div>
+            
+          </div>
+
     <div class="row">
-    <div class="col-md-6">
-                <div class="widget-area no-padding blank">
+            <div class="col-md-6">
+              <div class="widget-area no-padding blank">
                 <div class="status-upload">
                   <form>
                     <textarea type="text" name="comment" placeholder="最近どう?" required></textarea>
@@ -99,10 +150,10 @@
         $stmt =$dbh->prepare($sql);
         $stmt->execute();
         // この3構文がセットでsql文を実行できる.sql文１つにつき１セット
-
         var_dump($sql);
         echo '<br />';
         //phpmyadminでsql文のエラー確認を行う為、入れておくこと
+
 
         $sql ='SELECT * FROM `posts` WHERE 1';
         $stmt =$dbh->prepare($sql);
@@ -136,6 +187,64 @@
 
 ?>
 
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 content-margin-top">
+        <form action="bbs.php" method="post">
+          
+
+          <button type="submit" class="btn btn-primary col-xs-12" disabled>つぶやく</button>
+        </form>
+      </div>
+
+      <div class="col-md-8 content-margin-top">
+        <?php
+            // データの取得と表示
+            $sql = 'SELECT * FROM posts ORDER BY `created` DESC';
+            $posts = mysqli_query($db,$sql) or die(mysqli_error($db));
+        ?>
+
+        <div class="timeline-centered">
+
+        <?php while ($post = mysqli_fetch_assoc($posts)): ?>
+
+        <article class="timeline-entry">
+
+            <div class="timeline-entry-inner">
+
+                <div class="timeline-icon bg-success">
+                    <i class="entypo-feather"></i>
+                    <i class="fa fa-cogs"></i>
+                </div>
+
+                <div class="timeline-label">
+                    <h2><a href="#"><?php echo $post['nickname'] ?></a> <span><?php echo $post['created'] ?></span></h2>
+                    <p><?php echo $post['comment'] ?></p>
+                </div>
+            </div>
+
+        </article>
+        <?php endwhile; ?>
+
+        <article class="timeline-entry begin">
+
+            <div class="timeline-entry-inner">
+
+                <div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
+                    <i class="entypo-flight"></i> +
+                </div>
+
+            </div>
+
+        </article>
+
+      </div>
+
+    </div>
+  </div>
+
 <!-- <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -144,6 +253,13 @@
 
 </head>
 <body> -->
+<div id="f">
+    <div class="container">
+      <div class="row">
+        <p>Crafted with <i class="fa fa-heart"></i> by Y_Yokosawa.co.</p>
+      </div>
+    </div>
+  </div>
     
 </body>
 </html>
